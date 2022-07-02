@@ -1,0 +1,5 @@
+- role
+  - app
+    - git pull & restart
+  - tools
+    - alp
