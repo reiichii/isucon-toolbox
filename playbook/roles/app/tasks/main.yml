@@ -4,8 +4,20 @@
     dest: /home/isucon
     clone: no
 
-- name: restart
+- name: restart mysql
+  service:
+    name: mysql
+    state: restarted
+  become: true
+
+- name: restart web-ruby
   service:
     name: web-ruby
+    state: restarted
+  become: true
+
+- name: restart nginx
+  service:
+    name: nginx
     state: restarted
   become: true
