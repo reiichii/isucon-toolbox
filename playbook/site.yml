@@ -1,0 +1,8 @@
+- hosts: isuservers
+  roles:
+    # - nginx
+    # - mysql
+    - role: tools
+      tags: [tools]
+    - role: app
+      tags: [app]

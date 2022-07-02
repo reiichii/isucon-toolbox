@@ -1,0 +1,11 @@
+- name: git pull
+  git:
+    repo: git@github.com:reiichii/isucon-study0625.git
+    dest: /home/isucon
+    clone: no
+
+- name: restart
+  service:
+    name: web-ruby
+    state: restarted
+  become: true
