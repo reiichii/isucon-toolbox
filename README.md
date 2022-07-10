@@ -21,5 +21,5 @@ top
 
 # 実行後
 sudo cat /var/log/nginx/access.log | alp ltsv -m "/api/schedules/[0-9a-zA-Z]+" --sort avg -r
-
+make slow-show
 ```
