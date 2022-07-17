@@ -1,3 +1,5 @@
+# alp
+
 - name: check alp
   stat:
     path: /usr/local/bin/alp
@@ -20,9 +22,11 @@
   command: sudo install /tmp/alp /usr/local/bin/alp
   when: not alp.stat.exists
 
+# db command
+
 - name: cp Makefile
-  copy:
-    src: ./files/Makefile
+  template:
+    src: ./template/Makefile.j2
     dest: /home/isucon/Makefile
     owner: isucon
     group: isucon

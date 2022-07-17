@@ -1,12 +1,12 @@
 # mysql
 MYSQL_HOST="127.0.0.1"
 MYSQL_PORT=3306
-MYSQL_USER=isucon
-MYSQL_DBNAME=isucon2021_prior
-MYSQL_PASS=isucon
+MYSQL_USER={{ MYSQL_USER }}
+MYSQL_DBNAME={{ MYSQL_DBNAME }}
+MYSQL_PASS={{ MYSQL_PASS }}
 MYSQL=mysql -h$(MYSQL_HOST) -P$(MYSQL_PORT) -u$(MYSQL_USER) -p$(MYSQL_PASS) $(MYSQL_DBNAME)
 
-SLOW_LOG=/tmp/slow-query.log
+SLOW_LOG= /var/log/mysql/slow_query.log
 
 .PHONY: slow-on
 slow-on:

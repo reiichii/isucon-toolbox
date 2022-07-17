@@ -1,5 +1,9 @@
 - hosts: isuservers
   become: true
+  vars:
+    MYSQL_USER: isucon
+    MYSQL_PASS: isucon
+    MYSQL_DBNAME: isucondition
   roles:
     # - mysql
     - role: nginx
