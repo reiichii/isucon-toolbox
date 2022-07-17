@@ -1,4 +1,5 @@
 - hosts: isuservers
+  become: true
   roles:
     # - mysql
     - role: nginx

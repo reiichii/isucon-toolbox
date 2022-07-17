@@ -5,13 +5,15 @@
 
 - name: download binary file
   get_url:
-    name: alp
     url: https://github.com/tkuchiki/alp/releases/download/v1.0.9/alp_linux_amd64.tar.gz
     dest: /tmp
   when: not alp.stat.exists
 
 - name: unarchive
-  command: tar -zxvf /tmp/alp_linux_amd64.tar.gz
+  unarchive:
+    src: /tmp/alp_linux_amd64.tar.gz
+    dest: /tmp
+    remote_src: yes
   when: not alp.stat.exists
 
 - name: enabled
