@@ -5,7 +5,6 @@ MYSQL_USER={{ MYSQL_USER }}
 MYSQL_DBNAME={{ MYSQL_DBNAME }}
 MYSQL_PASS={{ MYSQL_PASS }}
 MYSQL=mysql -h$(MYSQL_HOST) -P$(MYSQL_PORT) -u$(MYSQL_USER) -p$(MYSQL_PASS) $(MYSQL_DBNAME)
-
 SLOW_LOG= /var/log/mysql/slow_query.log
 
 .PHONY: slow-on
@@ -21,3 +20,12 @@ slow-off:
 .PHONY: slow-show
 slow-show:
 	sudo mysqldumpslow -s t $(SLOW_LOG) | head -n 20
+
+
+# alp
+ALPSORT=sum
+ALPM="/api/isu/.+/icon,/api/isu/.+/graph,/api/isu/.+/condition,/api/isu/[-a-z0-9]+,/api/condition/.+,/isu/.+"
+OUTFORMAT=count,method,uri,min,max,sum,avg,p99
+.PHONY: alp
+alp:
+	sudo cat /var/log/nginx/access.log | alp ltsv -m $(ALPM) --sort $(ALPSORT) -o $(OUTFORMAT) --reverse

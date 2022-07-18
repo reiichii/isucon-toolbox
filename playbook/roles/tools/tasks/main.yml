@@ -1,5 +1,4 @@
 # alp
-
 - name: check alp
   stat:
     path: /usr/local/bin/alp
@@ -22,7 +21,7 @@
   command: sudo install /tmp/alp /usr/local/bin/alp
   when: not alp.stat.exists
 
-# db command
+# Makefile
 
 - name: cp Makefile
   template:
