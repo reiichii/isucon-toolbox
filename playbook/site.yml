@@ -6,9 +6,9 @@
     MYSQL_DBNAME: isucondition
   roles:
     # - mysql
-    - role: nginx
-      tags: [nginx]
     - role: tools
       tags: [tools]
     - role: app
       tags: [app]
+    - role: newrelic
+      tags: [newrelic]

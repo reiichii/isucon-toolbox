@@ -1,0 +1,4 @@
+- name: stop newrelic
+  systemd:
+    name: newrelic-infra
+    state: stopped
