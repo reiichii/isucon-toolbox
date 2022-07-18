@@ -4,8 +4,18 @@
     MYSQL_USER: isucon
     MYSQL_PASS: isucon
     MYSQL_DBNAME: isucondition
+    NGINX_FILES:
+      - {
+          src: "/etc/nginx/nginx.conf",
+          dest: "/home/isucon/webapp/isucondition.conf",
+        }
+      - {
+          src: "/etc/nginx/sites-available/isucondition.conf",
+          dest: "/home/isucon/webapp/nginx.conf",
+        }
   roles:
-    # - mysql
+    - role: nginx
+      tags: [nginx]
     - role: tools
       tags: [tools]
     - role: app

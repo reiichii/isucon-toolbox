@@ -1,0 +1,28 @@
+- name: cp conf
+  copy:
+    src: "{{ item.src }}"
+    dest: /tmp
+    remote_src: yes
+  loop: "{{ NGINX_FILES }}"
+
+- name: remove old file
+  file:
+    path: "{{ item.src }}"
+    state: absent
+  loop: "{{ NGINX_FILES }}"
+
+- name: create symbolic link
+  file:
+    src: "{{ item.dest }}"
+    dest: "{{ item.stc }}"
+    owner: root
+    group: root
+    mode: "777"
+    state: link
+  loop: "{{ NGINX_FILES }}"
+
+- name: restart
+  systemd:
+    name: nginx
+    state: restarted
+  tags: nginx-restart
