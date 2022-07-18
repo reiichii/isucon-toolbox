@@ -1,3 +1,9 @@
+# vim
+- name: use vim
+  community.general.alternatives:
+    name: editor
+    path: /usr/bin/vim.basic
+
 # alp
 - name: check alp
   stat:
