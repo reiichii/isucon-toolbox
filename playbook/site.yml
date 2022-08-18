@@ -3,15 +3,15 @@
   vars:
     MYSQL_USER: isucon
     MYSQL_PASS: isucon
-    MYSQL_DBNAME: isucondition
+    MYSQL_DBNAME: isuports
     NGINX_FILES:
       - {
           src: "/etc/nginx/nginx.conf",
-          dest: "/home/isucon/webapp/isucondition.conf",
+          dest: "/home/isucon/webapp/nginx_nginx.conf",
         }
       - {
-          src: "/etc/nginx/sites-available/isucondition.conf",
-          dest: "/home/isucon/webapp/nginx.conf",
+          src: "/etc/nginx/sites-available/isuports.conf",
+          dest: "/home/isucon/webapp/sites-available_isuports.conf",
         }
   roles:
     - role: nginx

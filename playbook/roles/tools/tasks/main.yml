@@ -32,7 +32,7 @@
 - name: cp Makefile
   template:
     src: ./template/Makefile.j2
-    dest: /home/isucon/Makefile
+    dest: /home/isucon/webapp/Makefile
     owner: isucon
     group: isucon
     mode: "0755"

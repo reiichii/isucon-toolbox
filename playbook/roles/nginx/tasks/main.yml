@@ -1,7 +1,7 @@
 - name: cp conf
   copy:
     src: "{{ item.src }}"
-    dest: /tmp
+    dest: "{{ item.dest }}"
     remote_src: yes
   loop: "{{ NGINX_FILES }}"
 
@@ -14,7 +14,7 @@
 - name: create symbolic link
   file:
     src: "{{ item.dest }}"
-    dest: "{{ item.stc }}"
+    dest: "{{ item.src }}"
     owner: root
     group: root
     mode: "777"
